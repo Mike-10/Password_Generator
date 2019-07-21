@@ -52,4 +52,4 @@ elif strength == "2":
         length2 -=1
 
     password2 = "".join(base2)
-    print("\nYour new password is",password2)
+    print(password2)
