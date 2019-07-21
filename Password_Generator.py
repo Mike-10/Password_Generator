@@ -11,7 +11,7 @@ import string
 from random import shuffle
 
 start_time = time.time()
-length = random.randint(8,12)
+length = random.randint(4,8)
 
 particle_integer = str(random.randint(0,9))
 particle_upper_letters = random.choice(string.ascii_uppercase)
@@ -34,4 +34,19 @@ shuffle(base)
 password = "".join(base)
 print(password)
 
-print("--- %s seconds ---" % (time.time() - start_time))
+print("\n--- %s seconds ---" % (time.time() - start_time))
+
+checklist = {"Count" : 0, "Upper" : 0, "Lower" : 0, "Number" : 0, "Punctuation" : 0}
+
+for p in password:
+    checklist["Count"] += 1
+    if p.islower():
+        checklist["Lower"] += 1
+    elif p.isupper():
+        checklist["Upper"] += 1
+    elif p.isdigit():
+        checklist["Number"] += 1
+    else:
+        checklist["Punctuation"] += 1
+
+print(checklist)
